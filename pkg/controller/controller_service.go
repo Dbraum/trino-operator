@@ -35,7 +35,6 @@ func (s *ControllerService) InitDeploymentInformer() {
 	clientset, err := kubernetes.NewForConfig(s.KubeConfig)
 	if err != nil {
 		panic("deployment informer init faild")
-		klog.Errorln("deployment informer init faild")
 	}
 	sharedInformerFactory := informers.NewSharedInformerFactory(clientset, time.Minute)
 	informer := sharedInformerFactory.Apps().V1().Deployments().Informer()
